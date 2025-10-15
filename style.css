@@ -365,6 +365,17 @@ section {
     border-left: 4px solid var(--primary-orange);
 }
 
+/* ===== SECTION ABOUT ===== */
+.travel-fee {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(142, 208, 43, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-lime);
+    font-size: 1.1rem;
+}
+
 /* ===== SECTION OUTILS ===== */
 .tools-intro {
     text-align: center;

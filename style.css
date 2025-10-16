@@ -247,6 +247,16 @@ nav a:hover {
     box-shadow: 0 6px 20px rgba(142, 208, 43, 0.4);
 }
 
+/* Button loading state */
+.btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.button-loading {
+    font-style: italic;
+}
+
 /* ===== SECTIONS ===== */
 section {
     padding: clamp(3rem, 6vw, 5rem) 0;
@@ -492,7 +502,6 @@ section {
 .address-link:active {
     transform: translateY(0);
 }
-/* ===== CLICKABLE ADDRESS STYLING ===== */
 
 .contact-info a {
     color: var(--darker-green);
@@ -631,280 +640,22 @@ section {
     border-color: var(--primary-lime);
 }
 
-/* ===== SECTION LOGO DU BAS ===== */
-.bottom-logo-section {
-    background: linear-gradient(135deg, var(--primary-lime), var(--darker-green));
-    padding: clamp(2rem, 4vw, 3rem) 0;
+/* ===== FORM SUCCESS MESSAGE ===== */
+.form-success-message {
+    background: var(--white);
+    padding: clamp(2rem, 4vw, 3rem);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
     text-align: center;
+    border-left: 4px solid var(--primary-lime);
+    animation: fadeInUp 0.6s ease-out;
     position: relative;
     overflow: hidden;
 }
 
-.bottom-logo-section::before {
+.form-success-message::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="white"/></svg>') repeat;
-}
-
-.bottom-logo {
-    height: clamp(80px, 15vw, 150px);
-    width: auto;
-    max-width: min(400px, 90vw);
-    transition: transform 0.3s ease;
-    position: relative;
-    z-index: 1;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-}
-
-.bottom-logo:hover {
-    transform: scale(1.05);
-}
-
-/* ===== PIED DE PAGE ===== */
-footer {
-    background: linear-gradient(135deg, var(--darker-green), #4a7a28);
-    color: var(--white);
-    text-align: center;
-    padding: 2rem 0;
-}
-
-footer p {
-    color: var(--white);
-    margin-bottom: 0.5rem;
-    opacity: 0.9;
-}
-
-/* ===== DESIGN RESPONSIVE ===== */
-
-/* Mobile First Approach */
-@media (max-width: 768px) {
-    .logo-nav-wrapper {
-        gap: 1rem;
-        padding: 0.25rem 0;
-    }
-
-    .logo img {
-        height: 40px;
-    }
-
-    nav ul {
-        gap: 0.8rem;
-    }
-
-    nav a {
-        font-size: 0.85rem;
-        padding: 0.3rem 0.2rem;
-    }
-
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .btn {
-        width: min(100%, 250px);
-    }
-    
-    .bottom-logo {
-        width: 90%;
-        max-width: 400px;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-    }
-
-    .tool-items {
-        gap: 0.5rem;
-    }
-
-    .tool-item {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.85rem;
-    }
-
-    /* Contact form responsive */
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .contact-form-container {
-        order: -1; /* Put form first on mobile */
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 1rem;
-    }
-
-    .logo-nav-wrapper {
-        gap: 0.5rem;
-    }
-
-    .logo img {
-        height: 35px;
-    }
-
-    nav ul {
-        gap: 0.6rem;
-    }
-
-    nav a {
-        font-size: 0.8rem;
-    }
-
-    .service-card,
-    .pricing-card {
-        padding: 1.25rem;
-    }
-
-    .tool-category {
-        padding: 1rem;
-    }
-
-    .contact-form-container {
-        padding: 1.25rem;
-    }
-}
-
-/* Very small screen adjustment */
-@media (max-width: 360px) {
-    .logo img {
-        height: 30px;
-    }
-    
-    nav a {
-        font-size: 0.75rem;
-        padding: 0.2rem;
-    }
-    
-    nav ul {
-        gap: 0.3rem;
-    }
-}
-
-/* Desktop Enhancements */
-@media (min-width: 769px) {
-    header {
-        min-height: 100px;
-    }
-
-    .logo img {
-        height: 80px;
-    }
-
-    .hero {
-        background-attachment: fixed;
-    }
-}
-
-@media (min-width: 1200px) {
-    header {
-        min-height: 120px;
-    }
-
-    .logo img {
-        height: 100px;
-    }
-}
-
-/* ===== ACCESSIBILITÉ ===== */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-
-    .logo img:hover,
-    .bottom-logo:hover {
-        transform: none;
-    }
-
-    .hero {
-        background-attachment: scroll;
-    }
-}
-
-/* Focus styles */
-a:focus-visible,
-button:focus-visible,
-.btn:focus-visible {
-    outline: 2px solid var(--primary-orange);
-    outline-offset: 2px;
-}
-
-/* Mode sombre respectueux */
-@media (prefers-color-scheme: dark) {
-    .service-card,
-    .pricing-card {
-        background: #2a2a2a;
-        color: #e0e0e0;
-    }
-    
-    .service-card p,
-    .pricing-card p,
-    .pricing-card li {
-        color: #e0e0e0;
-    }
-
-    .tools {
-        background: #1a1a1a;
-    }
-
-    .tool-category {
-        background: #2a2a2a;
-        color: #e0e0e0;
-    }
-
-    .tool-item {
-        background: #333;
-        color: #e0e0e0;
-    }
-
-    .contact-form-container {
-        background: #2a2a2a;
-        color: #e0e0e0;
-    }
-
-    .form-group label {
-        color: #e0e0e0;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        background-color: #333;
-        color: #e0e0e0;
-        border-color: #555;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-        background-color: #3a3a3a;
-    }
-}
-
-/* High contrast support */
-@media (prefers-contrast: high) {
-    :root {
-        --primary-orange: #cc5500;
-        --primary-lime: #66aa00;
-        --darker-green: #226600;
-        --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    }
-}
+   

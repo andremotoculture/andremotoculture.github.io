@@ -247,6 +247,17 @@ nav a:hover {
     box-shadow: 0 6px 20px rgba(142, 208, 43, 0.4);
 }
 
+/* Button loading state */
+.btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.button-loading {
+    font-style: italic;
+}
+
 /* ===== SECTIONS ===== */
 section {
     padding: clamp(3rem, 6vw, 5rem) 0;
@@ -492,7 +503,6 @@ section {
 .address-link:active {
     transform: translateY(0);
 }
-/* ===== CLICKABLE ADDRESS STYLING ===== */
 
 .contact-info a {
     color: var(--darker-green);
@@ -631,6 +641,61 @@ section {
     border-color: var(--primary-lime);
 }
 
+/* ===== FORM SUCCESS MESSAGE ===== */
+.form-success-message {
+    background: var(--white);
+    padding: clamp(2rem, 4vw, 3rem);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    border-left: 4px solid var(--primary-lime);
+    animation: fadeInUp 0.6s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-success-message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-lime), var(--primary-orange));
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-lime), var(--darker-green));
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 1.5rem;
+    animation: bounceIn 0.6s ease-out;
+}
+
+.form-success-message h4 {
+    color: var(--darker-green);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-success-message p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--text-gray);
+}
+
+/* Form transition */
+#contact-form {
+    transition: opacity 0.3s ease;
+}
+
 /* ===== SECTION LOGO DU BAS ===== */
 .bottom-logo-section {
     background: linear-gradient(135deg, var(--primary-lime), var(--darker-green));
@@ -676,6 +741,36 @@ footer p {
     color: var(--white);
     margin-bottom: 0.5rem;
     opacity: 0.9;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* ===== DESIGN RESPONSIVE ===== */
@@ -740,6 +835,21 @@ footer p {
     .contact-form-container {
         order: -1; /* Put form first on mobile */
     }
+
+    /* Success message responsive */
+    .form-success-message {
+        padding: 1.5rem;
+    }
+    
+    .success-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .form-success-message h4 {
+        font-size: 1.3rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -775,6 +885,10 @@ footer p {
     .contact-form-container {
         padding: 1.25rem;
     }
+
+    .form-success-message {
+        padding: 1.25rem;
+    }
 }
 
 /* Very small screen adjustment */
@@ -790,6 +904,16 @@ footer p {
     
     nav ul {
         gap: 0.3rem;
+    }
+
+    .form-success-message {
+        padding: 1rem;
+    }
+
+    .success-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
     }
 }
 
@@ -836,6 +960,11 @@ footer p {
 
     .hero {
         background-attachment: scroll;
+    }
+
+    .form-success-message,
+    .success-icon {
+        animation: none;
     }
 }
 
@@ -896,6 +1025,19 @@ button:focus-visible,
     .form-group select:focus,
     .form-group textarea:focus {
         background-color: #3a3a3a;
+    }
+
+    .form-success-message {
+        background: #2a2a2a;
+        color: #e0e0e0;
+    }
+
+    .form-success-message h4 {
+        color: #e0e0e0;
+    }
+
+    .form-success-message p {
+        color: #cccccc;
     }
 }
 

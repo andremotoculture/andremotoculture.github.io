@@ -463,6 +463,37 @@ section {
     margin-bottom: 1.5rem;
 }
 
+/* ===== CLICKABLE ADDRESS STYLING ===== */
+.address-link {
+    color: var(--darker-green);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 0.3rem 0;
+    border-radius: 4px;
+    position: relative;
+}
+
+.address-link::after {
+    content: '🗺️';
+    margin-left: 0.5rem;
+    font-size: 0.9em;
+}
+
+.address-link:hover,
+.address-link:focus {
+    color: var(--primary-orange);
+    text-decoration: underline;
+    background-color: rgba(142, 208, 43, 0.1);
+    padding: 0.3rem 0.5rem;
+    transform: translateY(-1px);
+}
+
+.address-link:active {
+    transform: translateY(0);
+}
+/* ===== CLICKABLE ADDRESS STYLING ===== */
+
 .contact-info a {
     color: var(--darker-green);
     text-decoration: none;

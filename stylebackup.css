@@ -743,6 +743,28 @@ footer p {
     opacity: 0.9;
 }
 
+/* ===== WEBSITE CREDIT STYLES ===== */
+.website-credit {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.website-credit a {
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.website-credit a:hover,
+.website-credit a:focus {
+    color: var(--primary-lime);
+    text-decoration: underline;
+}
+
 /* ===== ANIMATIONS ===== */
 @keyframes fadeInUp {
     from {
